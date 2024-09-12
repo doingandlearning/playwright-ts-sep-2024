@@ -35,3 +35,28 @@ test("check cookie banner goes and stays gone", async ({ page }) => {
   // Confirm the cookie banner is still not visible
   await expect(cookieBanner).not.toBeVisible();
 });
+
+test("is kevin still a director?", async ({ page }) => {
+  // Go to the home page
+  await page.goto(
+    "https://www.gov.uk/government/organisations/companies-house"
+  );
+  // Click on the buttons
+  await page.getByRole("link", { name: "Find company information" }).click();
+  await page.getByRole("button", { name: "Start now" }).click();
+
+  // Fill in the field and search
+  await page.getByLabel("Enter company name, number or").click();
+  await page
+    .getByLabel("Enter company name, number or")
+    .fill("doing and learning");
+  await page.getByLabel("Enter company name, number or").press("Enter");
+
+  await page.getByRole("link", { name: "DOING AND LEARNING LTD" }).click();
+  await page
+    .getByRole("link", { name: "People for DOING AND LEARNING" })
+    .click();
+  await expect(
+    page.getByRole("link", { name: "CUNNINGHAM, Kevin Peter" })
+  ).toBeVisible();
+});
