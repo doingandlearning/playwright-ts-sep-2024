@@ -16,19 +16,22 @@ test("check cookie banner goes and stays gone", async ({ page }) => {
     "https://www.gov.uk/government/organisations/companies-house"
   );
 
+  // DRY ... Don't Repeat Yourself!
+  const cookieBanner = page.getByLabel("Cookies on GOV.UK");
+
   // Cookie banner is visible
-  await expect(page.getByLabel("Cookies on GOV.UK")).toBeVisible();
+  await expect(cookieBanner).toBeVisible();
 
   // Click some buttons!
   await page.getByRole("button", { name: "Accept additional cookies" }).click();
   await page.getByRole("button", { name: "Hide this message" }).click();
 
   // Confirm the cookie banner is not visible
-  await expect(page.getByLabel("Cookies on GOV.UK")).not.toBeVisible();
+  await expect(cookieBanner).not.toBeVisible();
 
   // Refresh the page
   await page.reload();
 
   // Confirm the cookie banner is still not visible
-  await expect(page.getByLabel("Cookies on GOV.UK")).not.toBeVisible();
+  await expect(cookieBanner).not.toBeVisible();
 });
