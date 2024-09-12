@@ -4,7 +4,7 @@
 - Instructor: Kevin Cunningham
   - Email: kevin@kevincunningham.co.uk
   - Website: https://kevincunningham.co.uk
-- Repo link: [Repo Link](https://github.com/doingandlearning/playwright-ts-aug-30)
+- Repo link: [Repo Link](https://github.com/doingandlearning/playwright-ts-sep-2024)
 - Feedback link: [Feedback](https://forms.microsoft.com/e/ePKKTukeEB)
 - Miro board: [Miro](https://miro.com/app/board/uXjVLfmDz4Q=/?share_link_id=822026353820)
 
