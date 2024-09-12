@@ -126,14 +126,14 @@ for (const { url, title } of testData) {
   });
 }
 
-// Sample test-data.json file
-// [
-//   { "url": "https://www.gov.uk/government/organisations/companies-house", "title": "Companies House - GOV.UK" },
-//   { "url": "https://www.gov.uk/contact", "title": "Find contact details for services - GOV.UK" }
-// ]
+Sample test-data.json file
+[
+  { "url": "https://www.gov.uk/government/organisations/companies-house", "title": "Companies House - GOV.UK" },
+  { "url": "https://www.gov.uk/contact", "title": "Find contact details for services - GOV.UK" }
+]
 ```
 
-<!-- #### Exercise 5: Snapshots -->
+#### Exercise 5: Snapshots
 
 Objective: Practice taking screenshots and comparing them using Playwright's built-in .toHaveScreenshot() method.
 
