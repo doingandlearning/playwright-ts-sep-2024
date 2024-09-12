@@ -1,4 +1,5 @@
 import { test, expect, Browser } from "@playwright/test";
+import { HomePage } from "./Homepage";
 
 // test.beforeAll()
 test.beforeEach(async ({ page }) => {
@@ -6,8 +7,9 @@ test.beforeEach(async ({ page }) => {
     "https://www.gov.uk/government/organisations/companies-house"
   );
 });
-// test.afterEach(({page})=> {
-// });
+test.afterEach(({ page }) => {
+  test.setTimeout(5000);
+});
 // test.afterAll();
 
 test("Check the companies house title is correct", async ({ page }) => {
@@ -15,6 +17,7 @@ test("Check the companies house title is correct", async ({ page }) => {
   // context
   //page
   // goto
+  test.setTimeout(100000);
 
   await expect(page).toHaveTitle("Companies House - GOV.UK");
 });
@@ -30,7 +33,7 @@ test("check cookie banner goes and stays gone", async ({ page }) => {
 
   // Cookie banner is visible
   await expect(cookieBanner).toBeVisible();
-
+  await page.pause();
   // Click some buttons!
   await page.getByRole("button", { name: "Accept additional cookies" }).click();
   await page.getByRole("button", { name: "Hide this message" }).click();
@@ -68,4 +71,11 @@ test("is kevin still a director?", async ({ page }) => {
   await expect(
     page.getByRole("link", { name: "CUNNINGHAM, Kevin Peter" })
   ).toBeVisible();
+});
+
+test("rewrite cookie banner with POM", async ({ page }) => {
+  const homePage = new HomePage(page);
+  await expect(homePage.cookieBanner()).toBeVisible();
+  await homePage.clickCookieButtons();
+  await expect(homePage.cookieBanner()).not.toBeVisible();
 });

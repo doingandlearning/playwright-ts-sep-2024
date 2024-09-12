@@ -2,7 +2,10 @@
   "name": "teaching",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test-staging": "ENV_FILE=.env.staging npx playwright test",
+    "test-development": "ENV_FILE=.env.development npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
