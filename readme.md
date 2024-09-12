@@ -89,8 +89,6 @@ The aim of the workshop is to enable testers with extensive Selenium and Java ex
 3. **Bits and Bobs**
    - Page Object Model
    - File uploads
-   - Setting up different environments
-   - Database connection -> config reading ^^
 
 ### Wrap-Up and Q&A
 
