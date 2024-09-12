@@ -1,12 +1,21 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Browser } from "@playwright/test";
 
-test("Check the companies house title is correct", async ({ page }) => {
-  // Given, When
+// test.beforeAll()
+test.beforeEach(async ({ page }) => {
   await page.goto(
     "https://www.gov.uk/government/organisations/companies-house"
   );
+});
+// test.afterEach(({page})=> {
+// });
+// test.afterAll();
 
-  // Then
+test("Check the companies house title is correct", async ({ page }) => {
+  // browser
+  // context
+  //page
+  // goto
+
   await expect(page).toHaveTitle("Companies House - GOV.UK");
 });
 
